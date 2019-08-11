@@ -47,7 +47,7 @@ classify_emotion <- function(textColumns,algorithm="bayes",prior=1.0,verbose=FAL
         }
 		
         best_fit <- names(scores)[which.max(unlist(scores))]
-        if (best_fit == "disgust" && as.numeric(unlist(scores[2]))-3.09234 < .011) best_fit <- NA
+        if (best_fit == "disgust" && as.numeric(unlist(scores[2]))-3.09234 < .01) best_fit <- NA
 		documents <- rbind(documents,c(scores$anger,scores$disgust,scores$fear,scores$joy,scores$sadness,scores$surprise,best_fit))
 	}
 	
