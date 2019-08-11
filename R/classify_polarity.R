@@ -47,7 +47,7 @@ classify_polarity <- function(textColumns,algorithm="bayes",pstrong=0.5,pweak=1.
 		
         best_fit <- names(scores)[which.max(unlist(scores))]
         ratio <- as.integer(abs(scores$positive/scores$negative))
-        if (ratio > 0 & ration < 1) best_fit <- "neutral"
+        if (ratio > 0 & ratio < 1) best_fit <- "neutral"
 		documents <- rbind(documents,c(scores$positive,scores$negative,abs(scores$positive/scores$negative),best_fit))
 		if (verbose) {
 			print(paste("POS:",scores$positive,"NEG:",scores$negative,"RATIO:",abs(scores$positive/scores$negative)))
